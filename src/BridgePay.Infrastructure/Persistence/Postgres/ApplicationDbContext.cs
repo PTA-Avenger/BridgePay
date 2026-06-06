@@ -33,6 +33,12 @@ public class ApplicationDbContext : DbContext
     /// <summary>Gets or sets the TransactionFees DbSet.</summary>
     public DbSet<TransactionFee> TransactionFees => Set<TransactionFee>();
 
+    /// <summary>Gets or sets the AuditLogs DbSet.</summary>
+    public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
+
+    /// <summary>Gets or sets the WebhookPayloads DbSet.</summary>
+    public DbSet<WebhookPayload> WebhookPayloads => Set<WebhookPayload>();
+
     /// <summary>Configures the database model mappings.</summary>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

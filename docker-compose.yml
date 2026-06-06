@@ -11,14 +11,5 @@ services:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
 
-  mongodb:
-    image: mongo:7.0
-    container_name: bridgepay-mongodb
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb_data:/data/db
-
 volumes:
   rabbitmq_data:
-  mongodb_data:

@@ -34,7 +34,6 @@ public class HealthControllerTests : IClassFixture<WebApplicationFactory<Program
         healthData.Version.Should().Be("1.0.0");
         healthData.Services.Should().NotBeNull();
         healthData.Services.Postgres.Should().Be("Connected");
-        healthData.Services.MongoDB.Should().Be("Connected");
         healthData.Services.RabbitMQ.Should().Be("Connected");
     }
 
@@ -48,7 +47,6 @@ public class HealthControllerTests : IClassFixture<WebApplicationFactory<Program
     private class ServicesStatus
     {
         public string Postgres { get; set; } = string.Empty;
-        public string MongoDB { get; set; } = string.Empty;
         public string RabbitMQ { get; set; } = string.Empty;
     }
 }

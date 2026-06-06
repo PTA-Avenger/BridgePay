@@ -25,7 +25,6 @@ public class HealthController : ControllerBase
             Services = new
             {
                 Postgres = "Connected",
-                MongoDB = "Connected",
                 RabbitMQ = "Connected"
             }
         });

@@ -10,8 +10,6 @@ services:
         value: Production
       - key: ConnectionStrings__Supabase
         sync: false  # Set manually in Render dashboard
-      - key: ConnectionStrings__MongoDB
-        sync: false
       - key: RabbitMQ__Uri
         sync: false
       - key: Supabase__JwtSecret

@@ -6,8 +6,6 @@ using BridgePay.Domain.Interfaces;
 using BridgePay.Infrastructure.ExternalServices.MockBanks;
 using BridgePay.Infrastructure.Messaging.Consumers;
 using BridgePay.Infrastructure.Messaging.Publishers;
-using BridgePay.Infrastructure.Persistence.MongoDB;
-using BridgePay.Infrastructure.Persistence.MongoDB.Repositories;
 using BridgePay.Infrastructure.Persistence.Postgres;
 using BridgePay.Infrastructure.Persistence.Postgres.Repositories;
 using MassTransit;
@@ -32,9 +30,7 @@ public static class DependencyInjection
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseNpgsql(dbConnectionString, b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
-        // 2. MongoDB (Audit Log & Webhooks)
-        services.Configure<MongoDbSettings>(configuration.GetSection("MongoDB"));
-        services.AddSingleton<MongoDbContext>();
+        // 2. Audit Log & Webhook Repositories (PostgreSQL)
         services.AddScoped<IAuditLogService, AuditLogRepository>();
         services.AddScoped<WebhookPayloadRepository>();
 
