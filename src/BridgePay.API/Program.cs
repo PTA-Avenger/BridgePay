@@ -64,12 +64,20 @@ var app = builder.Build();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
 
-// Enable Swagger UI
-if (app.Environment.IsDevelopment())
+// Enable Swagger UI in all environments for portfolio exposure
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "BridgePay API v1");
+    c.RoutePrefix = "swagger";
+});
+
+// Redirect root "/" to "/swagger"
+app.MapGet("/", async context =>
+{
+    context.Response.Redirect("/swagger");
+    await Task.CompletedTask;
+});
 
 app.UseHttpsRedirection();
 
