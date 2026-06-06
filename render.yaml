@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: bridgepay-api
+    runtime: docker
+    dockerfilePath: ./src/BridgePay.API/Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__Supabase
+        sync: false  # Set manually in Render dashboard
+      - key: ConnectionStrings__MongoDB
+        sync: false
+      - key: RabbitMQ__Uri
+        sync: false
+      - key: Supabase__JwtSecret
+        sync: false

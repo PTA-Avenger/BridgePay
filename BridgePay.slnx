@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/BridgePay.API/BridgePay.API.csproj" />
+    <Project Path="src/BridgePay.Application/BridgePay.Application.csproj" />
+    <Project Path="src/BridgePay.Domain/BridgePay.Domain.csproj" />
+    <Project Path="src/BridgePay.Infrastructure/BridgePay.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/BridgePay.IntegrationTests/BridgePay.IntegrationTests.csproj" />
+    <Project Path="tests/BridgePay.UnitTests/BridgePay.UnitTests.csproj" />
+  </Folder>
+</Solution>
